@@ -9,7 +9,7 @@ interface ParticleHeaderProps {}
 
 export function ParticleHeader({}: ParticleHeaderProps) {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
+    // console.log(engine);
 
     // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
@@ -20,7 +20,7 @@ export function ParticleHeader({}: ParticleHeaderProps) {
 
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {
-      console.log(container);
+      // console.log(container);
     },
     [],
   );
