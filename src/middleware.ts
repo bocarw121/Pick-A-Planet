@@ -16,7 +16,7 @@ export default authMiddleware({
     '/planets/uranus',
     '/planets/neptune',
   ],
-  ignoredRoutes: ['auth/sign-in', 'auth/sign-up'],
+  ignoredRoutes: ['auth/sign-in', 'auth/sign-up', '/api/webhook'],
 });
 
 export const config = {
