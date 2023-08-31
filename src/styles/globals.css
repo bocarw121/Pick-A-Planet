@@ -38,6 +38,12 @@ body {
   z-index: 100;
 }
 
+/* Navbar adjustments */
+
 .dropdown-item__bg_none {
   background-color: transparent !important;
+}
+
+.navbar-item__color:hover {
+  color: var(--secondary-color) !important;
 }
