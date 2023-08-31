@@ -18,4 +18,5 @@ model User {
   createdAt    DateTime @map(name: "created_at")
   updatedAt    DateTime @map(name: "updated_at")
   profileImage String?  @map(name: "profile_image_url")
+  userId       String   @unique
 }
