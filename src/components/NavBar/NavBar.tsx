@@ -2,6 +2,7 @@ import React from 'react';
 
 import { CustomLink } from './NavLink';
 import { PlanetLink } from './PlanetLink';
+import { PlanetDropdown } from './PlanetDropdown';
 
 interface NavBarProps {}
 
@@ -40,7 +41,7 @@ export function NavBar({}: NavBarProps) {
                 />
               </svg>
             </label>
-            <div className="dropdown-menu dropdown-menu-bottom-center bg-primary">
+            <PlanetDropdown>
               <PlanetLink path="/planets/mercury">Mercury</PlanetLink>
               <PlanetLink path="/planets/venus">Venus</PlanetLink>
               <PlanetLink path="/planets/earth">Earth</PlanetLink>
@@ -49,7 +50,7 @@ export function NavBar({}: NavBarProps) {
               <PlanetLink path="/planets/saturn">Saturn</PlanetLink>
               <PlanetLink path="/planets/uranus">Uranus</PlanetLink>
               <PlanetLink path="/planets/neptune">Neptune</PlanetLink>
-            </div>
+            </PlanetDropdown>
           </div>
         </div>
         <CustomLink path="/">Contact</CustomLink>
@@ -60,16 +61,16 @@ export function NavBar({}: NavBarProps) {
             <CustomLink auth path="/">
               Profile
             </CustomLink>
-            <CustomLink auth path="/">
-              Logout
+            <CustomLink auth path="/auth/signout">
+              Sign Out
             </CustomLink>
           </>
         ) : (
           <>
-            <CustomLink auth path="/">
+            <CustomLink auth path="/auth/signin">
               Sign In
             </CustomLink>
-            <CustomLink auth path="/">
+            <CustomLink auth path="/auth/signup">
               Sign Up
             </CustomLink>
           </>
