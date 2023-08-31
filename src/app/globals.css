@@ -3,27 +3,35 @@
 @tailwind utilities;
 
 :root {
-    --primary-color: rgb(
-      14,
-      33,
-      160
-    ); /* Primary color for header, nav, and pages */
+  --primary-color: rgb(
+    14,
+    33,
+    160
+  ); /* Primary color for header, nav, and pages */
 
-    --secondary-color: rgb(
-      157,
-      68,
-      192
-    ); /* Hover color for interactive elements like links */
+  --secondary-color: rgb(
+    157,
+    68,
+    192
+  ); /* Hover color for interactive elements like links */
 
-    --border-color: rgb(
-      236,
-      83,
-      176
-    ); /* Color for buttons and interactive elements */
+  --border-color: rgb(
+    236,
+    83,
+    176
+  ); /* Color for buttons and interactive elements */
+  --header-height: 18.75rem;
 }
-
-
 
 body {
   min-height: 100vh;
+}
+
+/* Particles js */
+
+#tsparticles {
+  background-color: hsl(240, 68%, 9%);
+  height: var(--header-height);
+  /* width: 100%; */
+  /* z-index: 100; */
 }
