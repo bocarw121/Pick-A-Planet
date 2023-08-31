@@ -9,6 +9,8 @@
     160
   ); /* Primary color for header, nav, and pages */
 
+  --primary-light-color: rgb(14, 33, 160, 20);
+
   --secondary-color: rgb(
     157,
     68,
@@ -34,4 +36,8 @@ body {
   height: var(--header-height);
   width: 100%;
   z-index: 100;
+}
+
+.dropdown-item__bg_none {
+  background-color: transparent !important;
 }

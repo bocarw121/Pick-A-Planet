@@ -13,6 +13,10 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      backgroundColor: {
+        'primary-light': 'var(--primary-light-color)',
+        secondary: 'var(--secondary-color)',
+      },
       colors: {
         primary: 'var(--primary-color)',
         secondary: 'var(--secondary-color)',
@@ -20,6 +24,7 @@ const config: Config = {
       },
       textColor: {
         primary: 'var(--primary-color)',
+        'primary-light': 'var(--primary-light-color)',
         secondary: 'var(--secondary-color)',
       },
       borderColor: {
