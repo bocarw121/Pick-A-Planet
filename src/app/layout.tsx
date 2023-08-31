@@ -1,8 +1,9 @@
-import { AppWrapper } from "'@/components/AppWrapper'";
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
 
+import { AppWrapper } from "'@/components/AppWrapper'";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppWrapper>{children}</AppWrapper>
+        <AppWrapper>
+          <ClerkProvider>{children}</ClerkProvider>
+        </AppWrapper>
       </body>
     </html>
   );

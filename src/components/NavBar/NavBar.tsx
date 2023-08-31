@@ -10,11 +10,9 @@ export function NavBar({}: NavBarProps) {
   const isUser = false;
 
   return (
-    <nav className="navbar bg-primary">
+    <nav className="flex w-full p-4  bg-primary">
       <div className="navbar-start">
-        {/* <Link path="/" >
-          Ripple UI
-        </Link> */}
+        <h1>Logo</h1>
       </div>
       <div className="navbar-center">
         <CustomLink path="/">Home</CustomLink>
@@ -53,12 +51,12 @@ export function NavBar({}: NavBarProps) {
             </PlanetDropdown>
           </div>
         </div>
-        <CustomLink path="/">Contact</CustomLink>
+        <CustomLink path="/contact">Contact</CustomLink>
       </div>
       <div className="navbar-end ">
         {isUser ? (
           <>
-            <CustomLink auth path="/">
+            <CustomLink auth path="/profile">
               Profile
             </CustomLink>
             <CustomLink auth path="/auth/signout">
@@ -67,10 +65,10 @@ export function NavBar({}: NavBarProps) {
           </>
         ) : (
           <>
-            <CustomLink auth path="/auth/signin">
+            <CustomLink auth path="/auth/sign-in">
               Sign In
             </CustomLink>
-            <CustomLink auth path="/auth/signup">
+            <CustomLink auth path="/auth/sign-up">
               Sign Up
             </CustomLink>
           </>
@@ -78,91 +76,4 @@ export function NavBar({}: NavBarProps) {
       </div>
     </nav>
   );
-}
-
-{
-  /* <nav>
-  <ul class="nav-wrapper">
-    <li class='main-nav-link center'>
-      <Link   path='/'>
-        Home
-      </Link>
-    </li>
-    <li class='main-nav-link center'>
-      <button >
-        Planets
-      </button>
-      <ul class='nav-planet-list'>
-        <li>
-          <Link  path='/planets/mercury'>
-            Mercury
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/venus'>
-            Venus
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/earth'>
-            Earth
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/mars'>
-            Mars
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/jupiter'>
-            Jupiter
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/saturn'>
-            Saturn
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/uranus'>
-            Uranus
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/neptune'>
-            Neptune
-          </Link>
-        </li>
-        <li>
-          <Link  path='/planets/pluto'>
-            Pluto
-          </Link>
-        </li>
-      </ul>
-    </li>
-    <li class='main-nav-link center'>
-      <Link   path='/contact'>
-        Contact
-      </Link>
-    </li>
-    </ul>  
-    <div class="login" >
-    {{#if user}}
-        <Link   path='/profile'>
-          Profile
-        </Link>
-        <Link   path='/logout'>
-          Logout
-        </Link>
-    {{else}}
-        <Link  path='/register'>
-          Register
-        </Link>
-        <Link  path='/login'>
-          Login
-        </Link>
-      </div>
-    {{/if}}
-  
-</nav> */
 }
