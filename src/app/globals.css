@@ -32,6 +32,6 @@ body {
 #tsparticles {
   background-color: hsl(240, 68%, 9%);
   height: var(--header-height);
-  /* width: 100%; */
-  /* z-index: 100; */
+  width: 100%;
+  z-index: 100;
 }

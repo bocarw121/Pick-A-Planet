@@ -32,8 +32,8 @@ export function ParticleHeader({}: ParticleHeaderProps) {
         init={particlesInit}
         loaded={particlesLoaded}
         options={options as any}
-        height="300px"
-        width="100%"
+        // height="300px"
+        // width="100%"
       />
     </header>
   );
