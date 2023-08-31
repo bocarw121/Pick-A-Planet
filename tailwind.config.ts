@@ -13,8 +13,20 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        primary: 'var(--primary-color)',
+        secondary: 'var(--secondary-color)',
+        button: 'var(--button-color)',
+      },
+      textColor: {
+        primary: 'var(--primary-color)',
+        secondary: 'var(--secondary-color)',
+      },
+      borderColor: {
+        hover: 'var(--hover-color)',
+      },
     },
   },
-  plugins: [require("rippleui")],
+  plugins: [require('rippleui')],
 };
 export default config;
