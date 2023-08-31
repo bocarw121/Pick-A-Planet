@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CustomLink } from './NavLink';
+import { PlanetLink } from './PlanetLink';
 
 interface NavBarProps {}
 
@@ -40,65 +41,14 @@ export function NavBar({}: NavBarProps) {
               </svg>
             </label>
             <div className="dropdown-menu dropdown-menu-bottom-center bg-primary">
-              <a
-                tabIndex={-1}
-                href="/mercury"
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Mercury
-              </a>
-              <a
-                tabIndex={-1}
-                href="/venus"
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Venus
-              </a>
-              <a
-                tabIndex={-1}
-                href="/earth"
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Earth
-              </a>
-              <a
-                tabIndex={-1}
-                href="/mars"
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Mars
-              </a>
-              <a
-                tabIndex={-1}
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Jupiter
-              </a>
-              <a
-                tabIndex={-1}
-                className="dropdown-item text-center hover:scale-150 text-md dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Saturn
-              </a>
-              <a
-                tabIndex={-1}
-                href="/mars"
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Uranus
-              </a>
-              <a
-                tabIndex={-1}
-                className="dropdown-item text-center text-md hover:scale-150 dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Neptune
-              </a>
-              <a
-                tabIndex={-1}
-                className="dropdown-item text-center  hover:scale-150  text-md dropdown-item__bg_none ease-in-out duration-300 hover:text-secondary"
-              >
-                Pluto
-              </a>
+              <PlanetLink path="/planets/mercury">Mercury</PlanetLink>
+              <PlanetLink path="/planets/venus">Venus</PlanetLink>
+              <PlanetLink path="/planets/earth">Earth</PlanetLink>
+              <PlanetLink path="/planets/mars">Mars</PlanetLink>
+              <PlanetLink path="/planets/jupiter">Jupiter</PlanetLink>
+              <PlanetLink path="/planets/saturn">Saturn</PlanetLink>
+              <PlanetLink path="/planets/uranus">Uranus</PlanetLink>
+              <PlanetLink path="/planets/neptune">Neptune</PlanetLink>
             </div>
           </div>
         </div>
