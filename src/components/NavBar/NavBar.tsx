@@ -60,10 +60,10 @@ export function NavBar({}: NavBarProps) {
           </CustomLink>
         ) : (
           <>
-            <CustomLink auth path="/sign-in">
+            <CustomLink auth path="/signin">
               Sign In
             </CustomLink>
-            <CustomLink auth path="/sign-up">
+            <CustomLink auth path="/signup">
               Sign Up
             </CustomLink>
           </>
