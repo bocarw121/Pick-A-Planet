@@ -3,16 +3,21 @@ import React from 'react';
 import { CustomLink } from './NavLink';
 import { PlanetLink } from './PlanetLink';
 import { PlanetDropdown } from './PlanetDropdown';
+import { UserButton, useUser } from '@clerk/nextjs';
+import { SignOut } from '../SignOut';
+import { useAuthContext } from "'@/context/AuthContext'";
 
 interface NavBarProps {}
 
 export function NavBar({}: NavBarProps) {
-  const isUser = false;
+  const { user } = useAuthContext()!;
+  // const user = false;
 
   return (
     <nav className="flex w-full p-4  bg-primary">
       <div className="navbar-start">
         <h1>Logo</h1>
+        <SignOut />
       </div>
       <div className="navbar-center">
         <CustomLink path="/">Home</CustomLink>
@@ -54,14 +59,12 @@ export function NavBar({}: NavBarProps) {
         <CustomLink path="/contact">Contact</CustomLink>
       </div>
       <div className="navbar-end ">
-        {isUser ? (
+        {user ? (
           <>
             <CustomLink auth path="/profile">
               Profile
             </CustomLink>
-            <CustomLink auth path="/auth/signout">
-              Sign Out
-            </CustomLink>
+            <UserButton afterSignOutUrl="/" />
           </>
         ) : (
           <>

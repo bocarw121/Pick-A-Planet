@@ -53,6 +53,7 @@ export async function POST(req: Request) {
         createdAt: new Date(user.created_at),
         updatedAt: new Date(user.updated_at),
         profileImage: user.image_url,
+        userId: user.id,
       },
     });
 
