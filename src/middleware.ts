@@ -4,7 +4,7 @@ import { authMiddleware } from '@clerk/nextjs';
 // Please edit this to allow other routes to be public as needed.
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your middleware
 export default authMiddleware({
-  publicRoutes: ['/', 'api/me', 'api/create'],
+  publicRoutes: ['/', '/me', '/create'],
   ignoredRoutes: [
     '/api/webhook',
     '/contact',
@@ -16,13 +16,10 @@ export default authMiddleware({
     '/planets/saturn',
     '/planets/uranus',
     '/planets/neptune',
+    '/profile',
   ],
-
-  afterAuth(auth, req, evt) {
-    console.log(req.url, auth.user);
-  },
 });
 
 export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ['/((?!.*\\..*|_next).*)', '/'],
 };
