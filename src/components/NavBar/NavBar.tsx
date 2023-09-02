@@ -3,17 +3,11 @@ import React from 'react';
 import { CustomLink } from './NavLink';
 import { PlanetLink } from './PlanetLink';
 import { PlanetDropdown } from './PlanetDropdown';
-import {
-  UserButton,
-  SignedIn,
-  SignedOut,
-  ClerkLoading,
-  ClerkLoaded,
-} from '@clerk/nextjs';
 
 interface NavBarProps {}
 
 export function NavBar({}: NavBarProps) {
+  const user = false;
   return (
     <nav className="flex w-full p-4  bg-primary">
       <div className="navbar-start">
@@ -60,24 +54,20 @@ export function NavBar({}: NavBarProps) {
         <CustomLink path="/contact">Contact</CustomLink>
       </div>
       <div className="navbar-end ">
-        <SignedIn>
+        {user ? (
           <CustomLink auth path="/profile">
             Profile
           </CustomLink>
-          <UserButton afterSignOutUrl="/" />
-        </SignedIn>
-
-        <SignedOut>
-          {/* Avoid links flashing when page is refreshed */}
-          <ClerkLoaded>
+        ) : (
+          <>
             <CustomLink auth path="/sign-in">
               Sign In
             </CustomLink>
             <CustomLink auth path="/sign-up">
               Sign Up
             </CustomLink>
-          </ClerkLoaded>
-        </SignedOut>
+          </>
+        )}
       </div>
     </nav>
   );

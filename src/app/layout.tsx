@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ClerkProvider } from '@clerk/nextjs';
 
 import { AppWrapper } from "'@/components/AppWrapper'";
 import { AuthProvider } from "'@/context/AuthContext'";
@@ -20,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClerkProvider>
-          <AppWrapper>{children}</AppWrapper>
-        </ClerkProvider>
+        <AppWrapper>{children}</AppWrapper>
       </body>
     </html>
   );
