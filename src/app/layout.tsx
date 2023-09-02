@@ -21,9 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ClerkProvider>
-          <AuthProvider>
-            <AppWrapper>{children}</AppWrapper>
-          </AuthProvider>
+          <AppWrapper>{children}</AppWrapper>
         </ClerkProvider>
       </body>
     </html>

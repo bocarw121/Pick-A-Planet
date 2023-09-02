@@ -6,7 +6,6 @@ import { authMiddleware } from '@clerk/nextjs';
 export default authMiddleware({
   publicRoutes: ['/', '/me', '/create'],
   ignoredRoutes: [
-    '/api/webhook',
     '/contact',
     '/planets/mercury',
     '/planets/venus',
@@ -16,7 +15,6 @@ export default authMiddleware({
     '/planets/saturn',
     '/planets/uranus',
     '/planets/neptune',
-    '/profile',
   ],
 });
 
