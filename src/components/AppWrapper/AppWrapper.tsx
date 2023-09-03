@@ -4,14 +4,17 @@ import React, { ReactNode } from 'react';
 import { ParticleHeader } from '../ParticleHeader';
 import { NavBar } from '../NavBar';
 
-interface AppWrapperProps {}
+interface AppWrapperProps {
+  children: ReactNode;
+  user: any;
+}
 
 // This is a wrapper to avoid errors in layouts due to hooks in client components
-export function AppWrapper({ children }: { children: ReactNode }) {
+export function AppWrapper({ children, user }: AppWrapperProps) {
   return (
     <>
       <ParticleHeader />
-      <NavBar />
+      <NavBar user={user} />
       {children}
     </>
   );

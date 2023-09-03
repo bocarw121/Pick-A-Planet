@@ -3,11 +3,14 @@ import React from 'react';
 import { CustomLink } from './NavLink';
 import { PlanetLink } from './PlanetLink';
 import { PlanetDropdown } from './PlanetDropdown';
+import { getServerSession } from 'next-auth';
+import { signOut, useSession } from 'next-auth/react';
 
-interface NavBarProps {}
+interface NavBarProps {
+  user: any;
+}
 
-export function NavBar({}: NavBarProps) {
-  const user = false;
+export function NavBar({ user }: NavBarProps) {
   return (
     <nav className="flex w-full p-4  bg-primary">
       <div className="navbar-start">
@@ -55,15 +58,26 @@ export function NavBar({}: NavBarProps) {
       </div>
       <div className="navbar-end ">
         {user ? (
-          <CustomLink auth path="/profile">
-            Profile
-          </CustomLink>
+          <>
+            <CustomLink auth path="/profile">
+              Profile
+            </CustomLink>
+            <button
+              onClick={() => {
+                signOut({
+                  callbackUrl: `${window.location.origin}`,
+                });
+              }}
+            >
+              Sign Out
+            </button>
+          </>
         ) : (
           <>
-            <CustomLink auth path="/signin">
+            <CustomLink auth path="/api/auth/signin">
               Sign In
             </CustomLink>
-            <CustomLink auth path="/signup">
+            <CustomLink auth path="/api/auth/signup">
               Sign Up
             </CustomLink>
           </>

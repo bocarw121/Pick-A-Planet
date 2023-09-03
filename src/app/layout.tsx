@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google';
 
 import { AppWrapper } from "'@/components/AppWrapper'";
 import { AuthProvider } from "'@/context/AuthContext'";
+import { getServerSession } from 'next-auth';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -11,15 +13,19 @@ export const metadata: Metadata = {
   description: 'Displays nine planets including Pluto',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppWrapper>{children}</AppWrapper>
+        <AuthProvider>
+          <AppWrapper user={session?.user}>{children}</AppWrapper>
+        </AuthProvider>
       </body>
     </html>
   );
