@@ -45,7 +45,7 @@ export const nextAuthOptions: NextAuthOptions = {
 
         // check passwords match
         const isMatch = verifyPassword(
-          user.hashedPassword,
+          user.hashedPassword!,
           credentials?.password,
         );
 
