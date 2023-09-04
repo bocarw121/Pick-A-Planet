@@ -5,6 +5,22 @@ export type User = {
 };
 
 export type FormError = {
-  message: string;
-  type: string;
+  email: {
+    message: string;
+    type: string;
+  };
+  password: {
+    message: string;
+    type: string;
+  };
+
+  confirmPassword: {
+    message: string;
+    type: string;
+  };
+
+  all: {
+    message: string;
+    type: string;
+  };
 };

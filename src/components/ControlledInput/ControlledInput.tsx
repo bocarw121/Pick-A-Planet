@@ -17,7 +17,7 @@ export function ControlledInput({
     <input
       placeholder={placeHolder}
       type={type}
-      required
+      // required
       name={name}
       className="input max-w-full"
       onChange={onChange}

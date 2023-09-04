@@ -15,34 +15,71 @@ export const useUserStore = create<UserStore>((set) => ({
 
 interface FormErrorStore {
   error: FormError;
-  setError: (error: FormError) => void;
-  handleErrorChange: (type: string) => void;
+  setError: (error: { message: string; type: string }, type: string) => void;
+  handleErrorChange: (
+    type: 'email' | 'password' | 'confirmPassword' | 'all',
+  ) => void;
+  resetForm: () => void;
 }
 
-export const useFormErrorStore = create<FormErrorStore>((set) => ({
-  error: {
+export const defaultErrorFormState = {
+  email: {
     message: '',
     type: '',
   },
-  setError: (error) =>
-    set((state) => ({
-      ...state,
-      error: {
-        message: error.message,
-        type: error.type,
-      },
-    })),
-  handleErrorChange(type: string) {
-    return set((state) => {
-      if (state.error.type !== type) return { ...state };
+  password: {
+    message: '',
+    type: '',
+  },
+  confirmPassword: {
+    message: '',
+    type: '',
+  },
+  all: {
+    message: '',
+    type: '',
+  },
+};
 
+export const useFormErrorStore = create<FormErrorStore>((set) => ({
+  error: defaultErrorFormState,
+  setError: (error, type) => {
+    console.log(error, 'error', type, 'type');
+
+    return set((state) => {
       return {
         ...state,
         error: {
-          message: '',
-          type: '',
+          ...state.error,
+          [type]: {
+            message: error.message,
+            type: error.type,
+          },
         },
       };
     });
+  },
+
+  handleErrorChange(type) {
+    set((state) => {
+      return {
+        ...state,
+        error: {
+          ...state.error,
+          [type]: {
+            message: '',
+            type: '',
+          },
+        },
+      };
+    });
+  },
+  resetForm() {
+    set((state) => ({
+      ...state,
+      error: {
+        ...defaultErrorFormState,
+      },
+    }));
   },
 }));

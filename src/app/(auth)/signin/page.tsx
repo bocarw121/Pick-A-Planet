@@ -1,24 +1,41 @@
 'use client';
-
-import Link from 'next/link';
-import { signUpAction } from '../actions';
-
-import { ErrorMessage } from "'@/components/ErrorMessage'";
-import { useFormErrorStore } from "'@/lib/store'";
-import { ControlledInput } from "'@/components/ControlledInput'";
 import { SocialSignOn } from "'@/components/SocialSignOn'";
+import { useFormErrorStore } from "'@/lib/store'";
+import Link from 'next/link';
+import { signInAction } from '../actions';
+import { ErrorMessage } from "'@/components/ErrorMessage'";
+import { ControlledInput } from "'@/components/ControlledInput'";
 import { useEffect } from 'react';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-export default function SignUpPage() {
-  const { setError, error, handleErrorChange, resetForm } = useFormErrorStore(
-    (state) => state,
-  );
+export default function SignInPage() {
+  const { setError, error, handleErrorChange, resetForm } = useFormErrorStore();
+  const router = useRouter();
 
-  async function onSignUp(formData: FormData) {
-    const res = await signUpAction(formData);
+  async function onSignIn(formData: FormData) {
+    const res = await signInAction(formData);
+
     if (res && res.message && res.type) {
       setError(res, res.type);
     }
+    if (!res?.formData) {
+      setError({ message: 'Invalid credentials', type: 'all' }, 'all');
+      return;
+    }
+
+    const signInResponse = await signIn('credentials', {
+      email: res.formData.email,
+      password: res.formData.password,
+      redirect: false,
+    });
+
+    if (!signInResponse || signInResponse?.ok !== true) {
+      setError({ message: 'Invalid credentials', type: 'all' }, 'all');
+      return;
+    }
+
+    router.push('/profile');
   }
 
   useEffect(() => {
@@ -27,13 +44,11 @@ export default function SignUpPage() {
 
   return (
     <form
-      action={onSignUp}
+      action={onSignIn}
       className="mx-auto flex w-full max-w-lg flex-col rounded-xl border border-border bg-backgroundSecondary p-4 sm:p-20 mt-20 "
     >
-      {/* <p>Social </p> */}
       <SocialSignOn />
-
-      <div className="divider my-6 text-xs text-content2">or sign in with</div>
+      <div className="divider my-6 text-xs text-content2">or continue with</div>
 
       <div className="form-group">
         <div className="form-field">
@@ -41,13 +56,12 @@ export default function SignUpPage() {
 
           <ControlledInput
             placeHolder="name@awesomeemail.com"
-            type="email"
             name="email"
+            type="email"
             onChange={() => handleErrorChange('email')}
           />
-
-          <ErrorMessage error={error} typeToHandle="email" />
         </div>
+        <ErrorMessage error={error} typeToHandle="email" />
         <div className="form-field">
           <label className="form-label">
             <span>Password</span>
@@ -55,37 +69,29 @@ export default function SignUpPage() {
           <div className="form-control">
             <ControlledInput
               placeHolder="Super secret"
-              type="password"
               name="password"
+              type="password"
               onChange={() => handleErrorChange('password')}
             />
           </div>
-
           <ErrorMessage error={error} typeToHandle="password" />
         </div>
-
         <div className="form-field">
-          <label className="form-label">
-            <span>Confirm Password</span>
-          </label>
-          <div className="form-control">
-            <ControlledInput
-              placeHolder="Confirm super secret"
-              type="password"
-              name="confirmPassword"
-              onChange={() => handleErrorChange('confirmPassword')}
-            />
+          <div className="form-control justify-end">
+            <label className="form-label">
+              <a className="link link-underline-hover link-secondary text-sm">
+                Forgot your password?
+              </a>
+            </label>
           </div>
-          <ErrorMessage error={error} typeToHandle="confirmPassword" />
         </div>
-
         <div className="form-field pt-5">
           <div className="form-control justify-between">
             <button
               type="submit"
-              className="btn btn-primary hover:bg-secondary  w-full"
+              className="btn btn-primary hover:bg-secondary w-full"
             >
-              Sign Up
+              Sign in
             </button>
           </div>
 
@@ -95,10 +101,10 @@ export default function SignUpPage() {
         <div className="form-field">
           <div className="form-control">
             <Link
-              href="/signin"
+              href="/signup"
               className="link link-underline-hover link-secondary text-sm"
             >
-              Already have an account? Sign In
+              Don't have an account? Sign Up
             </Link>
           </div>
         </div>

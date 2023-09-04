@@ -2,13 +2,15 @@ import { FormError } from "'@/types'";
 
 interface ErrorMessageProps {
   error: FormError;
-  typeToHandle: string;
+  typeToHandle: 'email' | 'password' | 'confirmPassword' | 'all';
 }
 
 export function ErrorMessage({ error, typeToHandle }: ErrorMessageProps) {
   return (
-    error.type === typeToHandle && (
-      <span className="form-label-alt text-error">{error.message}</span>
+    error[typeToHandle]?.type === typeToHandle && (
+      <span className="form-label-alt text-error">
+        {error[typeToHandle].message}
+      </span>
     )
   );
 }
