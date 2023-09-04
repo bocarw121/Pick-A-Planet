@@ -14,11 +14,11 @@ export function SocialSignOn({}: SocialSignOnProps) {
           signIn('google', { callbackUrl: '/profile' });
         }}
       />
-      <Twitter
+      {/* <Twitter
         handleTwitterAuth={() => {
           signIn('twitter', { callbackUrl: '/profile' });
         }}
-      />
+      /> */}
       <Github
         handleGithubAuth={() => {
           signIn('github', { callbackUrl: '/profile' });
