@@ -3,17 +3,19 @@ import React from 'react';
 import { CustomLink } from './NavLink';
 import { PlanetLink } from './PlanetLink';
 import { PlanetDropdown } from './PlanetDropdown';
+import { signOut, useSession } from 'next-auth/react';
 
 interface NavBarProps {}
 
-export function NavBar({}: NavBarProps) {
-  const isUser = false;
+export function NavBar() {
+  const { data: session, status } = useSession();
 
   return (
     <nav className="flex w-full p-4  bg-primary">
       <div className="navbar-start">
         <h1>Logo</h1>
       </div>
+
       <div className="navbar-center">
         <CustomLink path="/">Home</CustomLink>
         <div className="dropdown-container">
@@ -54,23 +56,34 @@ export function NavBar({}: NavBarProps) {
         <CustomLink path="/contact">Contact</CustomLink>
       </div>
       <div className="navbar-end ">
-        {isUser ? (
+        {session?.user ? (
           <>
             <CustomLink auth path="/profile">
               Profile
             </CustomLink>
-            <CustomLink auth path="/auth/signout">
+            <button
+              className="navbar-item text-2xl text-white hover:text-secondary navbar-item__color"
+              onClick={() => {
+                signOut({
+                  callbackUrl: `${window.location.origin}`,
+                });
+              }}
+            >
               Sign Out
-            </CustomLink>
+            </button>
           </>
         ) : (
           <>
-            <CustomLink auth path="/auth/sign-in">
-              Sign In
-            </CustomLink>
-            <CustomLink auth path="/auth/sign-up">
-              Sign Up
-            </CustomLink>
+            {status !== 'loading' && (
+              <>
+                <CustomLink auth path="/signin">
+                  Sign In
+                </CustomLink>
+                <CustomLink auth path="/signup">
+                  Sign Up
+                </CustomLink>
+              </>
+            )}
           </>
         )}
       </div>

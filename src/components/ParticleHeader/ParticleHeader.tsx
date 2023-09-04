@@ -1,16 +1,17 @@
 'use client';
 
+import { useUserStore } from "'@/lib/store'";
 import React, { useCallback } from 'react';
 import Particles from 'react-particles';
 import type { Container, Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim'; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+import { usePathname } from 'next/navigation';
+import { DisplayPathname } from './DisplayPathname';
 
 interface ParticleHeaderProps {}
 
 export function ParticleHeader({}: ParticleHeaderProps) {
   const particlesInit = useCallback(async (engine: Engine) => {
-    // console.log(engine);
-
     // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
@@ -19,14 +20,12 @@ export function ParticleHeader({}: ParticleHeaderProps) {
   }, []);
 
   const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      // console.log(container);
-    },
+    async (_container: Container | undefined) => {},
     [],
   );
 
   return (
-    <header className="w-full">
+    <header className="w-full relative">
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -35,6 +34,7 @@ export function ParticleHeader({}: ParticleHeaderProps) {
         // height="300px"
         // width="100%"
       />
+      <DisplayPathname />
     </header>
   );
 }
