@@ -77,10 +77,7 @@ export function NavBar() {
             {status !== 'loading' && (
               <>
                 <CustomLink auth path="/api/auth/signin">
-                  Sign In
-                </CustomLink>
-                <CustomLink auth path="/api/auth/new-user">
-                  Sign Up
+                  Sign In / Sign Up
                 </CustomLink>
               </>
             )}
