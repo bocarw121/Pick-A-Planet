@@ -3,3 +3,8 @@ export type User = {
   email: string;
   image: string;
 };
+
+export type FormError = {
+  message: string;
+  type: string;
+};
