@@ -2,6 +2,7 @@ import { usePathname } from 'next/navigation';
 import { Lato } from 'next/font/google';
 import { useUserStore } from "'@/lib/store'";
 import { getFirstName } from "'@/utils/getFirstName'";
+import { useSession } from 'next-auth/react';
 
 interface DisplayPathnameProps {}
 
@@ -12,8 +13,8 @@ const lato = Lato({
 
 export function DisplayPathname({}: DisplayPathnameProps) {
   const pathName = usePathname();
-  const { user } = useUserStore();
-  const firsName = getFirstName(user?.name);
+  const { data: session, status } = useSession();
+  const firsName = getFirstName(session?.user?.name);
 
   function getNameToDisplay() {
     switch (pathName) {
@@ -46,7 +47,7 @@ export function DisplayPathname({}: DisplayPathnameProps) {
         <span
           className={`text-5xl font-bold text-center  text-white ${lato.className} font-bold`}
         >
-          Welcome to {planetName} {user?.name && firsName}
+          Welcome to {planetName} {session?.user?.name && firsName}
         </span>
       )}
     </div>

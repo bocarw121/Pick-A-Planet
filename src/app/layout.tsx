@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { AppWrapper } from "'@/components/AppWrapper'";
-import { getServerSession } from 'next-auth';
-import { User } from "'@/types'";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +16,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
-
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppWrapper user={session?.user as User}>{children}</AppWrapper>
+        <AppWrapper>{children}</AppWrapper>
       </body>
     </html>
   );

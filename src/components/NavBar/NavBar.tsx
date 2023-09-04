@@ -3,13 +3,12 @@ import React from 'react';
 import { CustomLink } from './NavLink';
 import { PlanetLink } from './PlanetLink';
 import { PlanetDropdown } from './PlanetDropdown';
-import { signOut } from 'next-auth/react';
-import { useUserStore } from "'@/lib/store'";
+import { signOut, useSession } from 'next-auth/react';
 
 interface NavBarProps {}
 
 export function NavBar() {
-  const { user } = useUserStore();
+  const { data: session, status } = useSession();
 
   return (
     <nav className="flex w-full p-4  bg-primary">
@@ -57,7 +56,7 @@ export function NavBar() {
         <CustomLink path="/contact">Contact</CustomLink>
       </div>
       <div className="navbar-end ">
-        {user ? (
+        {session?.user ? (
           <>
             <CustomLink auth path="/profile">
               Profile
@@ -75,12 +74,16 @@ export function NavBar() {
           </>
         ) : (
           <>
-            <CustomLink auth path="/api/auth/signin">
-              Sign In
-            </CustomLink>
-            <CustomLink auth path="/api/auth/new-user">
-              Sign Up
-            </CustomLink>
+            {status !== 'loading' && (
+              <>
+                <CustomLink auth path="/api/auth/signin">
+                  Sign In
+                </CustomLink>
+                <CustomLink auth path="/api/auth/new-user">
+                  Sign Up
+                </CustomLink>
+              </>
+            )}
           </>
         )}
       </div>
