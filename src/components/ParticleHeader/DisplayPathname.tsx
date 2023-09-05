@@ -13,7 +13,7 @@ const lato = Lato({
 
 export function DisplayPathname({}: DisplayPathnameProps) {
   const pathName = usePathname();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const firsName = getFirstName(session?.user?.name);
 
   function getNameToDisplay() {
@@ -47,7 +47,7 @@ export function DisplayPathname({}: DisplayPathnameProps) {
         <span
           className={`text-5xl font-bold text-center  text-white ${lato.className} font-bold`}
         >
-          Welcome to {planetName} {session?.user?.name && firsName}!
+          Welcome to {planetName}, {session?.user?.name && firsName}!
         </span>
       )}
     </div>
