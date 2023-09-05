@@ -5,7 +5,7 @@ import React, { useCallback } from 'react';
 import Particles from 'react-particles';
 import type { Container, Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim'; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
-import { usePathname } from 'next/navigation';
+
 import { DisplayPathname } from './DisplayPathname';
 
 interface ParticleHeaderProps {}
