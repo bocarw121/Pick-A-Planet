@@ -31,6 +31,9 @@ const config: Config = {
         hover: 'var(--hover-color)',
       },
     },
+    gridTemplateColumns: {
+      main: 'repeat(auto-fill, minmax(23.75rem, 1fr))',
+    },
   },
   plugins: [require('rippleui'), require('@tailwindcss/forms')],
 };
