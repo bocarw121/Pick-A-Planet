@@ -1,3 +1,10 @@
 export function getFirstName(name: string | undefined | null) {
-  return name ? name.split(' ')[0] : undefined;
+  if (!name) return '';
+  const firstName = name.split(' ')[0];
+
+  const [firstLetter, ...rest] = firstName.split('');
+
+  const firstNameCapitalized = `${firstLetter.toUpperCase()}${rest.join('')}`;
+
+  return firstNameCapitalized;
 }
