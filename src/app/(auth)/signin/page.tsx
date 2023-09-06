@@ -8,10 +8,12 @@ import { ControlledInput } from "'@/components/ControlledInput'";
 import { useEffect } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useIsAuthenticated } from "'@/hooks/useIsAuthenticated'";
 
 export default function SignInPage() {
   const { setError, error, handleErrorChange, resetForm } = useFormErrorStore();
   const router = useRouter();
+  useIsAuthenticated('/profile');
 
   async function onSignIn(formData: FormData) {
     const res = await signInAction(formData);

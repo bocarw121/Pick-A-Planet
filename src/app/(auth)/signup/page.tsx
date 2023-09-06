@@ -8,11 +8,14 @@ import { useFormErrorStore } from "'@/lib/store'";
 import { ControlledInput } from "'@/components/ControlledInput'";
 import { SocialSignOn } from "'@/components/SocialSignOn'";
 import { useEffect } from 'react';
+import { useIsAuthenticated } from "'@/hooks/useIsAuthenticated'";
 
 export default function SignUpPage() {
   const { setError, error, handleErrorChange, resetForm } = useFormErrorStore(
     (state) => state,
   );
+
+  useIsAuthenticated('/profile');
 
   async function onSignUp(formData: FormData) {
     const res = await signUpAction(formData);
