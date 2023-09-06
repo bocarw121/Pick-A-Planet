@@ -11,8 +11,6 @@ interface NavbarMobileProps {}
 export function NavbarMobile({}: NavbarMobileProps) {
   const { data: session } = useSession();
 
-  console.log(session);
-
   return (
     <nav className="navbar flex w-full p-4 bg-primary lg:hidden min-w-sm">
       <div className="navbar-start">
@@ -26,13 +24,9 @@ export function NavbarMobile({}: NavbarMobileProps) {
                 className="btn btn-ghost flex cursor-pointer px-0"
                 tabIndex={0}
               >
-                {session?.user ? (
+                {session?.user?.image ? (
                   <Image
-                    src={
-                      session.user.image
-                        ? session.user.image
-                        : '/profile/avatar.png'
-                    }
+                    src={session.user.image}
                     alt="avatar"
                     width={48}
                     height={48}
