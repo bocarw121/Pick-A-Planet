@@ -12,10 +12,12 @@ export const nextAuthOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: <string>process.env.GOOGLE_CLIENT_ID,
       clientSecret: <string>process.env.GOOGLE_CLIENT_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
     GithubProvider({
       clientId: <string>process.env.GITHUB_CLIENT_ID,
       clientSecret: <string>process.env.GITHUB_CLIENT_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
     CredentialsProvider({
       name: 'Credentials',
