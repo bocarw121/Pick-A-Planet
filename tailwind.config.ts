@@ -21,18 +21,24 @@ const config: Config = {
         primary: 'var(--primary-color)',
         secondary: 'var(--secondary-color)',
         button: 'var(--button-color)',
+        cream: 'var(--cream-border-color)',
       },
       textColor: {
         primary: 'var(--primary-color)',
         'primary-light': 'var(--primary-light-color)',
         secondary: 'var(--secondary-color)',
       },
+      fontSize: {
+        'planet-title': 'var(--responsive-planet-title-text-size)',
+      },
       borderColor: {
         hover: 'var(--hover-color)',
+        cream: 'var(--cream-border-color)',
       },
     },
     gridTemplateColumns: {
       main: 'repeat(auto-fill, minmax(23.75rem, 1fr))',
+      'planets-page': '4fr 1fr',
     },
   },
   plugins: [require('rippleui'), require('@tailwindcss/forms')],

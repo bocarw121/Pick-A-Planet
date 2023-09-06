@@ -1,1 +1,1 @@
-export * from "./MainPlanetDisplay";
+export * from './MainPlanetDisplay';

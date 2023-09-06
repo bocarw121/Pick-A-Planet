@@ -24,7 +24,17 @@
     83,
     176
   ); /* Color for buttons and interactive elements */
+
+  --cream-border-color: hsl(39, 81%, 83%);
   --header-height: 18.75rem;
+
+  /* Fonts */
+
+  --responsive-planet-title-text-size: clamp(
+    4.2rem,
+    3.8923rem + 1.2308vw,
+    5rem
+  );
 }
 
 body {
@@ -56,3 +66,41 @@ body {
 .radial-gradient {
   background: radial-gradient(circle at bottom, navy 0, black 100%);
 }
+
+/* Planets */
+.planet-content {
+  background-image: linear-gradient(
+    to right top,
+    #03031e,
+    #03041d,
+    #03041b,
+    #03051a,
+    #030518,
+    #030519,
+    #04061b,
+    #04061c,
+    #050721,
+    #060725,
+    #06082a,
+    #06082e
+  );
+  display: grid;
+
+  grid-template-columns: 4fr 1fr;
+}
+
+.planets-facts-motion {
+  animation: scale 10s infinite linear;
+}
+
+/* 
+.planet-content p {
+  color: var(--color-light);
+  font-size: clamp(1rem, 0.8462rem + 0.6154vw, 1.4rem);
+  width: clamp(45ch, 50%, 75ch);
+  line-height: 1.7;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 60px;
+  margin-right: auto;
+  margin-left: auto;
+} */
