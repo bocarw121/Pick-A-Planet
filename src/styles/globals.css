@@ -17,6 +17,8 @@
     192
   ); /* Hover color for interactive elements like links */
 
+  --particle-header-color: hsl(240, 68%, 9%);
+
   --border-color: rgb(
     236,
     83,
@@ -26,13 +28,15 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Particles js */
 
 #tsparticles {
-  background-color: hsl(240, 68%, 9%);
+  background-color: var(--particle-header-color);
   height: var(--header-height);
   width: 100%;
   z-index: 100;
@@ -46,4 +50,9 @@ body {
 
 .navbar-item__color:hover {
   color: var(--secondary-color) !important;
+}
+
+/* main */
+.radial-gradient {
+  background: radial-gradient(circle at bottom, navy 0, black 100%);
 }

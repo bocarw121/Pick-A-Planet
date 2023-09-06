@@ -5,6 +5,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { ParticleHeader } from '../ParticleHeader';
 import { NavBar } from '../NavBar';
 import { AuthProvider } from "'@/context/AuthContext'";
+import { Footer } from '../Footer';
 
 interface AppWrapperProps {
   children: ReactNode;
@@ -17,6 +18,7 @@ export function AppWrapper({ children }: AppWrapperProps) {
       <ParticleHeader />
       <NavBar />
       {children}
+      <Footer />
     </AuthProvider>
   );
 }
