@@ -56,10 +56,25 @@ export async function signUpAction(formData: FormData) {
       };
     }
 
-    await prisma.user.create({
+    const firstLetterInEmail = parsedForm.email.split('')[0];
+
+    const image = `https://s.gravatar.com/avatar/5edc045bafe13bf1ce09c68b90b5ee9f?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2F${firstLetterInEmail}.png`;
+
+    await prisma.account.create({
       data: {
-        email: parsedForm.email,
-        hashedPassword: await encryptPassword(parsedForm.passwords.password),
+        type: 'password',
+        provider: 'password',
+        providerAccountId: crypto.randomUUID(),
+        user: {
+          create: {
+            email: parsedForm.email,
+            hashedPassword: await encryptPassword(
+              parsedForm.passwords.password,
+            ),
+            emailVerified: null,
+            image,
+          },
+        },
       },
     });
   } catch (error) {
@@ -100,7 +115,7 @@ const signInSchema = z.object({
 export async function signInAction(formData: FormData) {
   const email = formData.get('email');
   const password = formData.get('password');
-  console.log(formData);
+  console.log(formData, 'formdata');
 
   if (!email && !email) {
     return { message: 'You must fill in all fields', type: 'all' };
@@ -131,6 +146,12 @@ export async function signInAction(formData: FormData) {
     if (!user) {
       return { message: 'Invalid email/password', type: 'all' };
     }
+
+    const account = await prisma.account.findUnique({
+      where: {
+        id: user.id,
+      },
+    });
 
     // if there is a user but no hashed password tell user to login with there original method
 
