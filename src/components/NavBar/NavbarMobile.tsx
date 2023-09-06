@@ -2,9 +2,10 @@
 
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { SignOut } from '../SignOut';
-import { MobileNavLink } from './MobileNavlink';
+import { MobileNavLink } from './MobileNavLink';
+import { PlanetDropdown } from './PlanetDropdown';
 
 interface NavbarMobileProps {}
 
@@ -14,7 +15,7 @@ export function NavbarMobile({}: NavbarMobileProps) {
   return (
     <nav className="navbar flex w-full p-4 bg-primary lg:hidden min-w-sm">
       <div className="navbar-start">
-        <a className="navbar-item">Pick A Planet</a>
+        <PlanetDropdown />
       </div>
       <div className="navbar-end">
         <div>
