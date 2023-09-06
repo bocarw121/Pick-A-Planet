@@ -17,13 +17,17 @@ interface FormErrorStore {
   error: FormError;
   setError: (error: { message: string; type: string }, type: string) => void;
   handleErrorChange: (
-    type: 'email' | 'password' | 'confirmPassword' | 'all',
+    type: 'email' | 'password' | 'confirmPassword' | 'name' | 'all',
   ) => void;
   resetForm: () => void;
 }
 
 export const defaultErrorFormState = {
   email: {
+    message: '',
+    type: '',
+  },
+  name: {
     message: '',
     type: '',
   },

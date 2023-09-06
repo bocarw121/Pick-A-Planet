@@ -40,6 +40,18 @@ export default function SignUpPage() {
 
       <div className="form-group">
         <div className="form-field">
+          <label className="form-label">Your Name</label>
+
+          <ControlledInput
+            placeHolder="Your awesome name"
+            type="text"
+            name="name"
+            onChange={() => handleErrorChange('name')}
+          />
+
+          <ErrorMessage error={error} typeToHandle="name" />
+        </div>
+        <div className="form-field">
           <label className="form-label">Email address</label>
 
           <ControlledInput

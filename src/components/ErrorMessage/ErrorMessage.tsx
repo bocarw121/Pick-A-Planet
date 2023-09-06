@@ -2,7 +2,7 @@ import { FormError } from "'@/types'";
 
 interface ErrorMessageProps {
   error: FormError;
-  typeToHandle: 'email' | 'password' | 'confirmPassword' | 'all';
+  typeToHandle: 'email' | 'password' | 'confirmPassword' | 'name' | 'all';
 }
 
 export function ErrorMessage({ error, typeToHandle }: ErrorMessageProps) {
