@@ -33,7 +33,7 @@ export default function SignUpPage() {
       {/* <p>Social </p> */}
       <SocialSignOn />
 
-      <div className="divider my-6 text-xs text-content2">or sign in with</div>
+      <div className="divider my-6 text-xs text-content2">or sign up with</div>
 
       <div className="form-group">
         <div className="form-field">
