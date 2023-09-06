@@ -3,7 +3,7 @@ import { lato } from "'@/lib/fonts'";
 
 export default function Home() {
   return (
-    <main className="radial-gradient pb-20">
+    <main className="bg-gradient-main pb-20">
       <h1 className="text-center text-5xl pt-20">Welcome to Pick a Planet</h1>
       <p
         className={`text-xl mx-auto  mt-10 w-[60%]  text-center ${lato.className}`}

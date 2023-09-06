@@ -27,12 +27,10 @@ export function ParticleHeader({}: ParticleHeaderProps) {
   return (
     <header className="w-full relative">
       <Particles
-        id="tsparticles"
+        className="bg-particle-header h-header-height w-full"
         init={particlesInit}
         loaded={particlesLoaded}
         options={options as any}
-        // height="300px"
-        // width="100%"
       />
       <DisplayPathname />
     </header>

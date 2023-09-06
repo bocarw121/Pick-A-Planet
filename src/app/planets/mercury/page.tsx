@@ -1,9 +1,10 @@
-import Image from 'next/image';
 import { ResponsivePlanetImage } from '../components/ResponsivePlanetImage';
 import { PlanetsFacts } from '../components/PlanetsFacts';
 import { PlanetsFactsImage } from '../components/PlanetsFacts/FactsImage';
 import { PlanetsFactsText } from '../components/PlanetsFacts/FactsText';
 import { PlanetMainTitle } from '../components/PlanetMainTitle';
+import { PlanetSectionTitle } from '../components/PlanetSectionTitle';
+import { PlanetSectionParagraph } from '../components/PlanetSectionParaph';
 
 export default function Mercury() {
   return (
@@ -17,7 +18,7 @@ export default function Mercury() {
             alt="Mercury main"
           />
 
-          <p>
+          <PlanetSectionParagraph>
             The smallest planet in our solar system and nearest to the Sun,
             Mercury is only slightly larger than Earth's Moon. From the surface
             of Mercury, the Sun would appear more than three times as large as
@@ -26,11 +27,11 @@ export default function Mercury() {
             not the hottest planet in our solar system – that title belongs to
             nearby Venus, thanks to its dense atmosphere. But Mercury is the
             fastest planet, zipping around the Sun every 88 Earth days.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Size and distance</h2>
-          <p>
+          <PlanetSectionTitle title="Size and distance" />
+          <PlanetSectionParagraph>
             With a radius of 1,516 miles (2,440 kilometers), Mercury is a little
             more than 1/3 the width of Earth. If Earth were the size of a
             nickel, Mercury would be about as big as a blueberry. From an
@@ -39,11 +40,11 @@ export default function Mercury() {
             astronomical unit (abbreviated as AU), is the distance from the Sun
             to Earth. From this distance, it takes sunlight 3.2 minutes to
             travel from the Sun to Mercury.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Orbit and Rotation</h2>
-          <p>
+          <PlanetSectionTitle title="Orbit and rotation" />
+          <PlanetSectionParagraph>
             Mercury's highly eccentric, egg-shaped orbit takes the planet as
             close as 29 million miles (47 million kilometers) and as far as 43
             million miles (70 million kilometers) from the Sun. It speeds around
@@ -61,31 +62,31 @@ export default function Mercury() {
             degrees with respect to the plane of its orbit around the Sun. That
             means it spins nearly perfectly upright and so does not experience
             seasons like many other planets do.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Structure</h2>
-          <p>
+          <PlanetSectionTitle title="Structure" />
+          <PlanetSectionParagraph>
             Mercury is the second densest planet, after Earth. It has a large
             metallic core with a radius of about 1,289 miles (2,074 kilometers),
             about 85 percent of the planet's radius. There is evidence that it
             is partly molten, or liquid. Mercury's outer shell, comparable to
             Earth's outer shell (called the mantle and crust), is only about 400
             kilometers (250 miles) thick.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Formation</h2>
-          <p>
+          <PlanetSectionTitle title="Formation" />
+          <PlanetSectionParagraph>
             Mercury formed about 4.5 billion years ago when gravity pulled
             swirling gas and dust together to form this small planet nearest the
             Sun. Like its fellow terrestrial planets, Mercury has a central
             core, a rocky mantle and a solid crust.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Surface</h2>
-          <p>
+          <PlanetSectionTitle title="Surface" />
+          <PlanetSectionParagraph>
             Mercury's surface resembles that of Earth's moon, scarred by many
             impact craters resulting from collisions with meteoroids and comets.
             Craters and features on Mercury are named after famous deceased
@@ -117,7 +118,7 @@ export default function Mercury() {
             regions of permanent shadow. There it could be cold enough to
             preserve water ice despite the high temperatures on sunlit parts of
             the planet.
-          </p>
+          </PlanetSectionParagraph>
 
           <ResponsivePlanetImage
             source="/planet-pages/mercury/mercury-spectrum.png"
@@ -125,17 +126,17 @@ export default function Mercury() {
           />
         </section>
         <section>
-          <h2>Atmosphere</h2>
-          <p>
+          <PlanetSectionTitle title="Atmosphere" />
+          <PlanetSectionParagraph>
             Instead of an atmosphere, Mercury possesses a thin exosphere made up
             of atoms blasted off the surface by the solar wind and striking
             meteoroids. Mercury's exosphere is composed mostly of oxygen,
             sodium, hydrogen, helium and potassium.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Magnetosphere</h2>
-          <p>
+          <PlanetSectionTitle title="Magnetosphere" />
+          <PlanetSectionParagraph>
             Mercury's magnetic field is offset relative to the planet's equator.
             Though Mercury's magnetic field at the surface has just one percent
             the strength of Earth's, it interacts with the magnetic field of the
@@ -143,15 +144,15 @@ export default function Mercury() {
             funnel the fast, hot solar wind plasma down to the surface of the
             planet. When the ions strike the surface, they knock off neutrally
             charged atoms and send them on a loop high into the sky.
-          </p>
+          </PlanetSectionParagraph>
         </section>
         <section>
-          <h2>Potential for Life</h2>
-          <p>
+          <PlanetSectionTitle title="Potential for life" />
+          <PlanetSectionParagraph>
             Mercury's environment is not conducive to life as we know it. The
             temperatures and solar radiation that characterize this planet are
             most likely too extreme for organisms to adapt to.
-          </p>
+          </PlanetSectionParagraph>
         </section>
       </article>
       <PlanetsFacts planet="Mercury">

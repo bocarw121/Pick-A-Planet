@@ -16,7 +16,7 @@ export function ResponsivePlanetImage({
 
   return (
     <Image
-      className="desktop-pics"
+      className="desktop-pics mx-auto mb-12"
       src={source}
       alt={alt}
       width={isMobile ? 320 : 460}
