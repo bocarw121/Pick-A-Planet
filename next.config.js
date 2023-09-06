@@ -1,15 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['lh3.googleusercontent.com'],
-    // remotePatterns: [
-    //   {
-    //     protocol: 'https',
-    //     hostname: '',
-    //     port: '',
-    //     pathname: '/**',
-    //   },
-    // ],
+    domains: ['lh3.googleusercontent.com', 's.gravatar.com'],
   },
   experimental: {
     serverActions: true,
