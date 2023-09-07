@@ -1,8 +1,9 @@
 'use server';
-import { encryptPassword, verifyPassword } from "'@/lib/argon2'";
-import { prisma } from "'@/lib/prisma'";
 import z from 'zod';
 import { redirect } from 'next/navigation';
+
+import { encryptPassword, verifyPassword } from "'@/lib/argon2'";
+import { prisma } from "'@/lib/prisma'";
 
 // Define a regular expression pattern for a valid name
 const nameRegex = /^[A-Za-z\s'-]+$/; // Allows letters, spaces, hyphens, and single quotes
@@ -155,12 +156,6 @@ export async function signInAction(formData: FormData) {
     if (!user) {
       return { message: 'Invalid email/password', type: 'all' };
     }
-
-    const account = await prisma.account.findUnique({
-      where: {
-        id: user.id,
-      },
-    });
 
     // if there is a user but no hashed password tell user to login with there original method
 
