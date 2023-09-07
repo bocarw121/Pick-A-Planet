@@ -1,5 +1,6 @@
 'use client';
-import { useWindowDimensions } from "'@/hooks/useWindowsDimensions'";
+
+import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
 
 interface ResponsivePlanetImageProps {
@@ -11,12 +12,12 @@ export function ResponsivePlanetImage({
   source,
   alt,
 }: ResponsivePlanetImageProps) {
-  const { width } = useWindowDimensions();
-  const isMobile = width < 768;
+  const { width } = useWindowSize();
+  const isMobile = width ? width < 768 : false;
 
   return (
     <Image
-      className="desktop-pics mx-auto mb-12"
+      className="mx-auto mb-12"
       src={source}
       alt={alt}
       width={isMobile ? 320 : 460}

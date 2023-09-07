@@ -7,7 +7,7 @@ import { PlanetsFactsImage } from '../components/PlanetsFacts/FactsImage';
 import { PlanetsFactsText } from '../components/PlanetsFacts/FactsText';
 import { ResponsivePlanetImage } from '../components/ResponsivePlanetImage';
 
-export default function Page() {
+export default function Earth() {
   return (
     <>
       <article>
