@@ -8,11 +8,14 @@ import { useFormErrorStore } from "'@/lib/store'";
 import { ControlledInput } from "'@/components/ControlledInput'";
 import { SocialSignOn } from "'@/components/SocialSignOn'";
 import { useEffect } from 'react';
+import { useIsAuthenticated } from "'@/hooks/useIsAuthenticated'";
 
 export default function SignUpPage() {
   const { setError, error, handleErrorChange, resetForm } = useFormErrorStore(
     (state) => state,
   );
+
+  useIsAuthenticated('/profile');
 
   async function onSignUp(formData: FormData) {
     const res = await signUpAction(formData);
@@ -33,9 +36,21 @@ export default function SignUpPage() {
       {/* <p>Social </p> */}
       <SocialSignOn />
 
-      <div className="divider my-6 text-xs text-content2">or sign in with</div>
+      <div className="divider my-6 text-xs text-content2">or sign up with</div>
 
       <div className="form-group">
+        <div className="form-field">
+          <label className="form-label">Your Name</label>
+
+          <ControlledInput
+            placeHolder="Your awesome name"
+            type="text"
+            name="name"
+            onChange={() => handleErrorChange('name')}
+          />
+
+          <ErrorMessage error={error} typeToHandle="name" />
+        </div>
         <div className="form-field">
           <label className="form-label">Email address</label>
 

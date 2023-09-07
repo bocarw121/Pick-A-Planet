@@ -5,6 +5,10 @@ export type User = {
 };
 
 export type FormError = {
+  name: {
+    message: string;
+    type: string;
+  };
   email: {
     message: string;
     type: string;

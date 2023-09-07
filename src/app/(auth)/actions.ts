@@ -1,11 +1,18 @@
 'use server';
-import { encryptPassword, verifyPassword } from "'@/lib/argon2'";
-import { prisma } from "'@/lib/prisma'";
 import z from 'zod';
 import { redirect } from 'next/navigation';
 
+import { encryptPassword, verifyPassword } from "'@/lib/argon2'";
+import { prisma } from "'@/lib/prisma'";
+
+// Define a regular expression pattern for a valid name
+const nameRegex = /^[A-Za-z\s'-]+$/; // Allows letters, spaces, hyphens, and single quotes
+
 const registrationSchema = z.object({
   email: z.string().email('Email is required'),
+  name: z.string().refine((name) => nameRegex.test(name), {
+    message: 'Please enter a valid name with no special characters.',
+  }),
   passwords: z
     .object({
       password: z.string().min(8, 'Password must be at least 8 characters'),
@@ -23,11 +30,12 @@ const registrationSchema = z.object({
  * @returns
  */
 export async function signUpAction(formData: FormData) {
+  const name = formData.get('name');
   const email = formData.get('email');
   const password = formData.get('password');
   const confirmPassword = formData.get('confirmPassword');
 
-  if (!email && !password && !confirmPassword) {
+  if (!email && !password && !confirmPassword && !name) {
     return {
       message: 'You must fill in all fields',
       type: 'all',
@@ -37,6 +45,7 @@ export async function signUpAction(formData: FormData) {
   try {
     const parsedForm = registrationSchema.parse({
       email,
+      name,
       passwords: {
         password,
         confirmPassword,
@@ -56,15 +65,34 @@ export async function signUpAction(formData: FormData) {
       };
     }
 
-    await prisma.user.create({
+    const firstLetterInEmail = parsedForm.email.split('')[0];
+
+    const image = `https://s.gravatar.com/avatar/5edc045bafe13bf1ce09c68b90b5ee9f?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2F${firstLetterInEmail}.png`;
+
+    await prisma.account.create({
       data: {
-        email: parsedForm.email,
-        hashedPassword: await encryptPassword(parsedForm.passwords.password),
+        type: 'password',
+        provider: 'password',
+        providerAccountId: crypto.randomUUID(),
+        user: {
+          create: {
+            name: parsedForm.name,
+            email: parsedForm.email,
+            hashedPassword: await encryptPassword(
+              parsedForm.passwords.password,
+            ),
+            emailVerified: null,
+            image,
+          },
+        },
       },
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
       for (let err of error.issues) {
+        if (err.path[0] === 'name') {
+          return { message: err.message, type: err.path[0] };
+        }
         if (err.path[0] === 'email') {
           return { message: err.message, type: err.path[0] };
         }
@@ -100,7 +128,6 @@ const signInSchema = z.object({
 export async function signInAction(formData: FormData) {
   const email = formData.get('email');
   const password = formData.get('password');
-  console.log(formData);
 
   if (!email && !email) {
     return { message: 'You must fill in all fields', type: 'all' };
@@ -119,8 +146,6 @@ export async function signInAction(formData: FormData) {
       email,
       password,
     });
-
-    console.log(parsedForm, 'parsedForm');
 
     const user = await prisma.user.findUnique({
       where: {

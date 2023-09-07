@@ -17,13 +17,17 @@ interface FormErrorStore {
   error: FormError;
   setError: (error: { message: string; type: string }, type: string) => void;
   handleErrorChange: (
-    type: 'email' | 'password' | 'confirmPassword' | 'all',
+    type: 'email' | 'password' | 'confirmPassword' | 'name' | 'all',
   ) => void;
   resetForm: () => void;
 }
 
 export const defaultErrorFormState = {
   email: {
+    message: '',
+    type: '',
+  },
+  name: {
     message: '',
     type: '',
   },
@@ -44,8 +48,6 @@ export const defaultErrorFormState = {
 export const useFormErrorStore = create<FormErrorStore>((set) => ({
   error: defaultErrorFormState,
   setError: (error, type) => {
-    console.log(error, 'error', type, 'type');
-
     return set((state) => {
       return {
         ...state,
