@@ -23,7 +23,9 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body
+        className={`${inter.className} min-h-screen flex flex-col min-w-fit`}
+      >
         <SessionProvider session={session}>
           <ParticleHeader />
           <NavBar />

@@ -45,6 +45,9 @@
   --responsive-planet-paragraph-size: clamp(1rem, 0.8462rem + 0.6154vw, 1.4rem);
 
   --responsive-planet-paragraph-width: clamp(45ch, 50%, 75ch);
+
+  /* Spacing */
+  --main-horizontal-spacing: 0 8rem;
 }
 
 /* Navbar adjustments */
