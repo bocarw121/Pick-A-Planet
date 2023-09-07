@@ -127,7 +127,6 @@ const signInSchema = z.object({
 export async function signInAction(formData: FormData) {
   const email = formData.get('email');
   const password = formData.get('password');
-  console.log(formData, 'formdata');
 
   if (!email && !email) {
     return { message: 'You must fill in all fields', type: 'all' };

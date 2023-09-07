@@ -16,7 +16,6 @@ export async function verifyPassword(hashedPassword: string, password: string) {
 
     return isVerified;
   } catch (error) {
-    console.error(error);
     return false;
   }
 }

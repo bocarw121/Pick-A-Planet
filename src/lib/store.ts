@@ -48,8 +48,6 @@ export const defaultErrorFormState = {
 export const useFormErrorStore = create<FormErrorStore>((set) => ({
   error: defaultErrorFormState,
   setError: (error, type) => {
-    console.log(error, 'error', type, 'type');
-
     return set((state) => {
       return {
         ...state,
