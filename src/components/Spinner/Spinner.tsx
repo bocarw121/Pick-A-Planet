@@ -1,13 +1,11 @@
-import React from 'react';
+interface SpinnerProps {
+  size: string;
+}
 
-interface SpinnerProps {}
-
-export function Spinner({}: SpinnerProps) {
+export function Spinner({ size }: SpinnerProps) {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white">
-        <span className="sr-only">Loading...</span>
-      </div>
-    </div>
+    <div
+      className={`animate-spin rounded-full h-${size} w-${size} border-t-2 border-b-2 border-white`}
+    ></div>
   );
 }
