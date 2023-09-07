@@ -5,6 +5,7 @@ import { PlanetsFactsText } from '../components/PlanetsFacts/FactsText';
 import { PlanetMainTitle } from '../components/PlanetMainTitle';
 import { PlanetSectionTitle } from '../components/PlanetSectionTitle';
 import { PlanetSectionParagraph } from '../components/PlanetSectionParaph';
+import { Divider } from "'@/components/Divider'";
 
 export default function Mercury() {
   return (
@@ -29,6 +30,7 @@ export default function Mercury() {
             fastest planet, zipping around the Sun every 88 Earth days.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Size and distance" />
           <PlanetSectionParagraph>
@@ -42,6 +44,7 @@ export default function Mercury() {
             travel from the Sun to Mercury.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Orbit and rotation" />
           <PlanetSectionParagraph>
@@ -64,6 +67,7 @@ export default function Mercury() {
             seasons like many other planets do.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Structure" />
           <PlanetSectionParagraph>
@@ -75,6 +79,7 @@ export default function Mercury() {
             kilometers (250 miles) thick.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Formation" />
           <PlanetSectionParagraph>
@@ -84,6 +89,7 @@ export default function Mercury() {
             core, a rocky mantle and a solid crust.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Surface" />
           <PlanetSectionParagraph>
@@ -125,6 +131,7 @@ export default function Mercury() {
             alt="Mercury's spectrum"
           />
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Atmosphere" />
           <PlanetSectionParagraph>
@@ -134,6 +141,7 @@ export default function Mercury() {
             sodium, hydrogen, helium and potassium.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Magnetosphere" />
           <PlanetSectionParagraph>
@@ -146,6 +154,7 @@ export default function Mercury() {
             charged atoms and send them on a loop high into the sky.
           </PlanetSectionParagraph>
         </section>
+        <Divider />
         <section>
           <PlanetSectionTitle title="Potential for life" />
           <PlanetSectionParagraph>
