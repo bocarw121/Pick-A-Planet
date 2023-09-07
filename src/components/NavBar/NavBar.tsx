@@ -1,7 +1,6 @@
-import React from 'react';
+'use client';
 
 import { CustomLink } from './NavLink';
-import { PlanetLink } from './PlanetLink';
 import { PlanetDropdown } from './PlanetDropdown';
 import { useSession } from 'next-auth/react';
 import { NavbarMobile } from './NavbarMobile';
