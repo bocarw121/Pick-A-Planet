@@ -4,7 +4,7 @@ interface PlaneDropdownProps {}
 
 export function PlanetDropdown({}: PlaneDropdownProps) {
   return (
-    <div className="dropdown-container ">
+    <div className="dropdown-container">
       <div className="dropdown">
         <label
           className="btn btn-ghost hover:bg-primary flex cursor-pointer px-0 text-2xl  text-white"
