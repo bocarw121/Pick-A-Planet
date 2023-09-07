@@ -1,4 +1,3 @@
-import React from 'react';
 import { PlanetImage } from './PlanetImage';
 import { PlanetLink } from './PlanetLink';
 import { mainPlanets } from "'@/constants/planets'";
