@@ -1,5 +1,5 @@
 import { getUserByEmail } from '@/data/user';
-import { encryptPassword } from '@/lib/argon2';
+import { encryptPassword } from '@/lib/bcrypt';
 import { db } from '@/lib/db';
 import { RegistrationSchema } from '@/schemas';
 import { redirect } from 'next/navigation';

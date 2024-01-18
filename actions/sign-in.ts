@@ -2,7 +2,7 @@
 import z from 'zod';
 import { redirect } from 'next/navigation';
 
-import { verifyPassword } from '@/lib/argon2';
+import { verifyPassword } from '@/lib/bcrypt';
 import { login } from '@/auth';
 import { SignInSchema } from '@/schemas';
 import { getUserByEmail } from '@/data/user';

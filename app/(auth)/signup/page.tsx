@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { signUpAction } from '../actions';
+import { signUpAction } from '../../../actions/actions';
 
 import { ErrorMessage } from '@/components/ErrorMessage';
 import { useFormErrorStore } from '@/lib/store';

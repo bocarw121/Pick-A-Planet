@@ -2,11 +2,10 @@
 import { SocialSignOn } from '@/components/SocialSignOn';
 import { useFormErrorStore } from '@/lib/store';
 import Link from 'next/link';
-import { signInAction } from '../actions';
+import { signIn } from '@/actions/sign-in';
 import { ErrorMessage } from '@/components/ErrorMessage';
 import { ControlledInput } from '@/components/ControlledInput';
 import { useEffect } from 'react';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useIsAuthenticated } from '@/hooks/useIsAuthenticated';
 
@@ -15,30 +14,7 @@ export default function SignInPage() {
   const router = useRouter();
   useIsAuthenticated('/profile');
 
-  async function onSignIn(formData: FormData) {
-    const res = await signInAction(formData);
-
-    if (res && res.message && res.type) {
-      setError(res, res.type);
-    }
-    if (!res?.formData) {
-      setError({ message: 'Invalid credentials', type: 'all' }, 'all');
-      return;
-    }
-
-    const signInResponse = await signIn('credentials', {
-      email: res.formData.email,
-      password: res.formData.password,
-      redirect: false,
-    });
-
-    if (!signInResponse || signInResponse?.ok !== true) {
-      setError({ message: 'Invalid credentials', type: 'all' }, 'all');
-      return;
-    }
-
-    router.push('/profile');
-  }
+  async function onSignIn(formData: FormData) {}
 
   useEffect(() => {
     resetForm();
