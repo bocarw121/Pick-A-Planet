@@ -1,6 +1,6 @@
 import { PlanetImage } from './PlanetImage';
 import { PlanetLink } from './PlanetLink';
-import { mainPlanets } from "'@/constants/planets'";
+import { mainPlanets } from '@/constants/planets';
 import { PlanetText } from './PlanetText';
 
 interface MainPlanetDisplayProps {}

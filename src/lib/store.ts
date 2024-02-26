@@ -1,4 +1,4 @@
-import { FormError, User } from "'@/types'";
+import { FormError, User } from '@/types';
 import { create } from 'zustand';
 
 interface UserStore {

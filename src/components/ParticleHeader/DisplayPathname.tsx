@@ -1,8 +1,8 @@
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 
-import { getFirstName } from "'@/utils/getFirstName'";
-import { lato } from "'@/lib/fonts'";
+import { getFirstName } from '@/utils/getFirstName';
+import { lato } from '@/lib/fonts';
 
 interface DisplayPathnameProps {}
 

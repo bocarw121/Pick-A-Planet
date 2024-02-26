@@ -1,7 +1,7 @@
-import { getServerSession } from 'next-auth';
+import { auth } from '@/./auth';
 
 export default async function Profile() {
-  const session = await getServerSession();
+  const session = await auth();
 
   return (
     <div className="grid place-content-center text-center h-[80vh]">

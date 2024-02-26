@@ -1,4 +1,4 @@
-import { useActiveRoute } from "'@/hooks/useActiveRoute'";
+import { useActiveRoute } from '@/hooks/useActiveRoute';
 import Link from 'next/link';
 import React, { ReactNode } from 'react';
 

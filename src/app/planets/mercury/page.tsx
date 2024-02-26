@@ -5,7 +5,7 @@ import { PlanetsFactsText } from '../components/PlanetsFacts/FactsText';
 import { PlanetMainTitle } from '../components/PlanetMainTitle';
 import { PlanetSectionTitle } from '../components/PlanetSectionTitle';
 import { PlanetSectionParagraph } from '../components/PlanetSectionParaph';
-import { Divider } from "'@/components/Divider'";
+import { Divider } from '@/components/Divider';
 
 export default function Mercury() {
   return (

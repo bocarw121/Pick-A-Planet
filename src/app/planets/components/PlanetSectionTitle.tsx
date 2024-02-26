@@ -1,4 +1,4 @@
-import { roboto } from "'@/lib/fonts'";
+import { roboto } from '@/lib/fonts';
 
 interface PlanetSectionProps {
   title: string;

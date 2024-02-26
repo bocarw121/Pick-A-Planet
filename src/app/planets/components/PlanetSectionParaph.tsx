@@ -1,4 +1,4 @@
-import { lato, roboto } from "'@/lib/fonts'";
+import { lato, roboto } from '@/lib/fonts';
 import { ReactNode } from 'react';
 
 interface PlanetSectionParagraphProps {

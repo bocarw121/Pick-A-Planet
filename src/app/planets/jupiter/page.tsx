@@ -1,4 +1,4 @@
-import { Divider } from "'@/components/Divider'";
+import { Divider } from '@/components/Divider';
 import { PlanetMainTitle } from '../components/PlanetMainTitle';
 import { PlanetSectionParagraph } from '../components/PlanetSectionParaph';
 import { PlanetSectionTitle } from '../components/PlanetSectionTitle';

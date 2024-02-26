@@ -3,12 +3,12 @@
 import Link from 'next/link';
 import { signUpAction } from '../actions';
 
-import { ErrorMessage } from "'@/components/ErrorMessage'";
-import { useFormErrorStore } from "'@/lib/store'";
-import { ControlledInput } from "'@/components/ControlledInput'";
-import { SocialSignOn } from "'@/components/SocialSignOn'";
+import { ErrorMessage } from '@/components/ErrorMessage';
+import { useFormErrorStore } from '@/lib/store';
+import { ControlledInput } from '@/components/ControlledInput';
+import { SocialSignOn } from '@/components/SocialSignOn';
 import { useEffect } from 'react';
-import { useIsAuthenticated } from "'@/hooks/useIsAuthenticated'";
+import { useIsAuthenticated } from '@/hooks/useIsAuthenticated';
 
 export default function SignUpPage() {
   const { setError, error, handleErrorChange, resetForm } = useFormErrorStore(

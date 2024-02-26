@@ -2,8 +2,8 @@
 import z from 'zod';
 import { redirect } from 'next/navigation';
 
-import { encryptPassword, verifyPassword } from "'@/lib/argon2'";
-import { prisma } from "'@/lib/prisma'";
+import { encryptPassword, verifyPassword } from '@/lib/bcrypt';
+import { prisma } from '@/lib/prisma';
 
 // Define a regular expression pattern for a valid name
 const nameRegex = /^[A-Za-z\s'-]+$/; // Allows letters, spaces, hyphens, and single quotes

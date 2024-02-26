@@ -1,5 +1,5 @@
-import { MainPlanetDisplay } from "'@/components/MainPlanetDisplay'";
-import { lato } from "'@/lib/fonts'";
+import { MainPlanetDisplay } from '@/components/MainPlanetDisplay';
+import { lato } from '@/lib/fonts';
 
 export default function Home() {
   return (

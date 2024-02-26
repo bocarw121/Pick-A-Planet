@@ -4,7 +4,7 @@ import React, { ReactNode, useEffect } from 'react';
 
 import { ParticleHeader } from '../ParticleHeader';
 import { NavBar } from '../NavBar';
-import { AuthProvider } from "'@/context/AuthContext'";
+import { AuthProvider } from '@/context/AuthContext';
 
 interface AppWrapperProps {
   children: ReactNode;

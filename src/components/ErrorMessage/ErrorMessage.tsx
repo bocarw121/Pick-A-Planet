@@ -1,4 +1,4 @@
-import { FormError } from "'@/types'";
+import { FormError } from '@/types';
 
 interface ErrorMessageProps {
   error: FormError;
