@@ -8,11 +8,15 @@ import { useEffect } from 'react';
  */
 export function useIsAuthenticated(path: string) {
   const router = useRouter();
-  const { status } = useSession();
+  const { status, data: session } = useSession();
 
-  useEffect(() => {
-    if (status === 'authenticated') {
-      router.push(path);
-    }
-  }, [router, status, path]);
+  console.log({ status, session });
+
+  if (status === 'loading') {
+    return;
+  }
+
+  if (status === 'authenticated') {
+    router.push(path);
+  }
 }

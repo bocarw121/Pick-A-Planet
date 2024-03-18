@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@auth/prisma-adapter':
-    specifier: ^1.4.0
-    version: 1.4.0(@prisma/client@5.10.2)
+    specifier: ^1.5.0
+    version: 1.5.0(@prisma/client@5.11.0)
   '@prisma/client':
-    specifier: ^5.10.2
-    version: 5.10.2(prisma@5.10.2)
+    specifier: ^5.11.0
+    version: 5.11.0(prisma@5.10.2)
   '@tailwindcss/forms':
     specifier: ^0.5.6
     version: 0.5.7(tailwindcss@3.3.3)
@@ -26,6 +26,9 @@ dependencies:
   '@uidotdev/usehooks':
     specifier: ^2.2.0
     version: 2.4.1(react-dom@18.2.0)(react@18.2.0)
+  adapters:
+    specifier: link:@types/@auth/core/adapters
+    version: link:@types/@auth/core/adapters
   autoprefixer:
     specifier: 10.4.15
     version: 10.4.15(postcss@8.4.29)
@@ -42,8 +45,8 @@ dependencies:
     specifier: 13.4.19
     version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
   next-auth:
-    specifier: 5.0.0-beta.13
-    version: 5.0.0-beta.13(next@13.4.19)(react@18.2.0)
+    specifier: 5.0.0-beta.15
+    version: 5.0.0-beta.15(next@13.4.19)(react@18.2.0)
   postcss:
     specifier: 8.4.29
     version: 8.4.29
@@ -65,6 +68,9 @@ dependencies:
   tailwindcss:
     specifier: 3.3.3
     version: 3.3.3
+  tsparticles-engine:
+    specifier: ^2.12.0
+    version: 2.12.0
   tsparticles-slim:
     specifier: ^2.12.0
     version: 2.12.0
@@ -110,8 +116,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@auth/core@0.27.0:
-    resolution: {integrity: sha512-3bydnRJIM/Al6mkYmb53MsC+6G8ojw3lLPzwgVnX4dCo6N2lrib6Wq6r0vxZIhuHGjLObqqtUfpeaEj5aeTHFg==}
+  /@auth/core@0.28.0:
+    resolution: {integrity: sha512-/fh/tb/L4NMSYcyPoo4Imn8vN6MskcVfgESF8/ndgtI4fhD/7u7i5fTVzWgNRZ4ebIEGHNDbWFRxaTu1NtQgvA==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -133,13 +139,13 @@ packages:
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/prisma-adapter@1.4.0(@prisma/client@5.10.2):
-    resolution: {integrity: sha512-k5D6ajX8MZv9107WWaIpzcNmsB8+sumyc7y46lnAMbLdgBoUcwAYtxGLbwEFSvzgjDcxjWqzlB5AIAED4vioDA==}
+  /@auth/prisma-adapter@1.5.0(@prisma/client@5.11.0):
+    resolution: {integrity: sha512-TNDY7z5VhC3E5xetb4qhTmSmjvyEurafaTM6dlYlhTGj+7K3xTki7fJ0oJwgkFsQ2fT1weJJJSBmjtH8Nqsnuw==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5'
     dependencies:
-      '@auth/core': 0.27.0
-      '@prisma/client': 5.10.2(prisma@5.10.2)
+      '@auth/core': 0.28.0
+      '@prisma/client': 5.11.0(prisma@5.10.2)
     transitivePeerDependencies:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
@@ -375,8 +381,8 @@ packages:
     dev: false
     optional: true
 
-  /@prisma/client@5.10.2(prisma@5.10.2):
-    resolution: {integrity: sha512-ef49hzB2yJZCvM5gFHMxSFL9KYrIP9udpT5rYo0CsHD4P9IKj473MbhU1gjKKftiwWBTIyrt9jukprzZXazyag==}
+  /@prisma/client@5.11.0(prisma@5.10.2):
+    resolution: {integrity: sha512-SWshvS5FDXvgJKM/a0y9nDC1rqd7KG0Q6ZVzd+U7ZXK5soe73DJxJJgbNBt2GNXOa+ysWB4suTpdK5zfFPhwiw==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
@@ -2288,8 +2294,8 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: false
 
-  /next-auth@5.0.0-beta.13(next@13.4.19)(react@18.2.0):
-    resolution: {integrity: sha512-2m2Gq69WQ0YXcHCCpHn2y5z1bxSlqD/XOuAgrdtz49/VIAdTFFeYZz97RYqf6xMF8VGmoG32VUnJ6LzaHk6Fwg==}
+  /next-auth@5.0.0-beta.15(next@13.4.19)(react@18.2.0):
+    resolution: {integrity: sha512-UQggNq8CDu3/w8CYkihKLLnRPNXel98K0j7mtjj9a6XTNYo4Hni8xg/2h1YhElW6vXE8mgtvmH11rU8NKw86jQ==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -2304,7 +2310,7 @@ packages:
       nodemailer:
         optional: true
     dependencies:
-      '@auth/core': 0.27.0
+      '@auth/core': 0.28.0
       next: 13.4.19(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false

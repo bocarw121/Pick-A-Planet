@@ -9,11 +9,13 @@ import { ControlledInput } from '@/components/ControlledInput';
 import { SocialSignOn } from '@/components/SocialSignOn';
 import { useEffect } from 'react';
 import { useIsAuthenticated } from '@/hooks/useIsAuthenticated';
+import { useSession } from 'next-auth/react';
 
 export default function SignUpPage() {
   const { setError, error, handleErrorChange, resetForm } = useFormErrorStore(
     (state) => state,
   );
+  const { data: session, status } = useSession();
 
   useIsAuthenticated('/profile');
 

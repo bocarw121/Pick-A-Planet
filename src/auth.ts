@@ -27,8 +27,12 @@ export const {
       return token;
     },
     session: async ({ session, token }) => {
-      console.log({ session });
-
+      if (session && session.user) {
+        session.user.id = token.id as string;
+        session.user.email = token.email!;
+        session.user.name = token.name;
+        session.user.image = token.picture;
+      }
       return session;
     },
   },
